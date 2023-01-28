@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="with=device-width, intitial">
+       <title>HELPDESK</title> 
+       <%= stylesheet_link_tag "style.css"%>
+
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <section class="sub-header">
+            <nav>
+                <%= link_to root_path do %>
+                    <%=image_tag "logo.png"%>
+                <% end %>   
+                <div class="nav-links">
+                    <ul>
+                        <li><%=link_to "HOME",root_path%></li>
+                        <li><%=link_to "CONTACT",root_path%></li>
+                        <li><%= link_to "SIGN OUT ",  destroy_user_session_path%></li>
+                        <li><%= link_to "EDIT PROFILE", edit_user_registration_path%></li>
+                        <li><%= link_to "DASHBOARD", dashboard_path%></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <h1>MENTAL HEALTH</h1>
+            <br/><br/><br/>
+            <div class="quote">
+                <%= @quote.text %>
+            </div>
+              
+        </section>
+    </body>
+</html>

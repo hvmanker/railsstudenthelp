@@ -1,0 +1,51 @@
+<div style="padding-top:50px !important;">
+  <div class="row justify-content-center">
+    <div class="col-4 shadow p-3 mb-6 bg-light rounded">
+  
+    <% flash.each do |name, msg| %>
+        <%if name=='alert'||name=='danger'%>
+          <div class="alert alert-danger">
+            <%=msg%>
+          </div>
+        <%else%>
+        <div class="alert alert-success ">
+          <%=msg%>
+        </div>
+        <%end%>
+      <%end%>
+    <h2 style="text-align:center;">Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field form-group">
+    <%= f.label :email ,{ class: "col-3 col-form-label"} %><br />
+    <div class="col-10" style= "text-content:center !important;" >
+
+    <%= f.email_field :email,class:"form-control",placeholder:"email" , autofocus: true, autocomplete: "email"%>
+    </div>
+  </div>
+  <br/>
+  <div class="field form-group">
+    <%= f.label :password ,{ class: "col-3 col-form-label"} %><br />
+    <div class="col-10">
+    <%= f.password_field :password, autocomplete: "current-password",class:"form-control",placeholder:"password" %>
+    </div>
+  </div>
+  <br/>
+  <div style="padding-left:4%;">
+  <% if devise_mapping.rememberable? %>
+    <div class="field form-group">
+      <%= f.check_box :remember_me,class:"form-check-input"%>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+  <div>
+  <br/>
+  <div class="form-group">
+    <div class="col-10">
+  
+    <%= f.submit "Log in" , class:"btn btn-secondary"%>
+  </div>
+  </div>
+<% end %>
+<br/>
+<%= render "devise/shared/links" %>

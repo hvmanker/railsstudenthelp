@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="with=device-width, intitial">
+       <title>HELPDESK</title> 
+       <%= stylesheet_link_tag "style.css" %>
+
+
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        
+        <section class="header">
+            <nav>                
+                <%= link_to root_path do %>
+                    <%=image_tag "logo.png"%>
+                <% end %>
+                <div class="nav-links">
+                    <ul>
+                        <li><%=link_to "HOME",root_path%></li>
+                        <li><%=link_to "CONTACT",root_path%></li>
+                        <% if user_signed_in? %>
+                            <li><%= link_to "DASHBOARD", dashboard_path%></li>
+                        <%end%>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="text-box">
+                <h1>Student's One Stop Solution</h1>
+                
+                <% if user_signed_in? %>
+                    <%= link_to "SIGNOUT",  destroy_user_session_path	,mehtod: :delete, class:"hero-button"%>
+                <%else%>
+                    <%=link_to "LOGIN",new_user_session_path,class:"hero-button"%>
+                    <%=link_to "SIGNUP",new_user_registration_path,class:"hero-button "%>
+                <%end%>
+                
+            </div>
+
+
+        </section>
+
+        <!----What we do?---->
+        <section class="us">
+            <h1>What we do?</h1>
+            <p>Helpdesk, is an innovative website that has been designed by us for the students' regular needs.
+               From courses to jobs, from notes to practice questions, we have got your back for every thing you 
+               need as a student.
+            </p>
+
+            <div class="row">
+                <div class="us2">
+                    <h3>Courses</h3>
+                    <p>We offer a wide range of courses to our students available through the top course
+                        websites. The courses range from technical courses like java, javascript, python, django,
+                        sql and many more to courses for school students and many exam aspirants.
+                    </p>
+                </div>
+
+                <div class="us2">
+                    <h3>Jobs</h3>
+                    <p>We offer a wide range of courses to our students available through the top course
+                        websites. The courses range from technical courses like java, javascript, python, django,
+                        sql and many more to courses for school students and many exam aspirants.
+                    </p>
+                </div>
+
+                <div class="us2">
+                    <h3>Resources</h3>
+                    <p>We offer a wide range of courses to our students available through the top course
+                        websites. The courses range from technical courses like java, javascript, python, django,
+                        sql and many more to courses for school students and many exam aspirants.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-----Facilities-->
+        <section class="facilities">
+            <h1>Our Facilities !</h1>
+            <div class="row">
+                <div class="facilities-col">
+                    <%=image_tag "teacher.jpg"%>
+                    <h3>Highly qualified mentors.</h3>
+                    <p>Availability of highly qualified mentors
+                       for every course of your need to guide in your educational journey!
+                    </p>
+                </div>
+
+                <div class="facilities-col">
+                    <%=image_tag "jobs.jpg"%>
+                    <h3>Jobs in countless domains.</h3>
+                    <p>Through the linkage and network of our
+                        wide range of job portals, we help you to find
+                        your perfect job.
+                    </p>
+                </div>
+
+                <div class="facilities-col">
+                    <%=image_tag "courses.jpg"%>
+                    <h3>Unlimited courses.</h3>
+                    <p>Availability of both top paid and free courses across the internet.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
